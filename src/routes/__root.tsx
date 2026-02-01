@@ -8,8 +8,10 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <React.Fragment>
-      <div>Hello "__root"!</div>
-      <Outlet />
+      <div>
+        <div>Hello "__root"!</div>
+        <Outlet />
+      </div>
     </React.Fragment>
   );
 }
