@@ -5,5 +5,10 @@ export const Route = createFileRoute('/about')({
 });
 
 function RouteComponent() {
-  return <div>Hello "/about"!</div>;
+  return (
+    <section>
+      <h1>About</h1>
+      <p>This is a sketchbook for me to practice React and TypeScript.</p>
+    </section>
+  );
 }
