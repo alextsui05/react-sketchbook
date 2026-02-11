@@ -9,10 +9,22 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as MahjongRouteImport } from './routes/mahjong'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as LinksRouteImport } from './routes/links'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const MahjongRoute = MahjongRouteImport.update({
+  id: '/mahjong',
+  path: '/mahjong',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LinksRoute = LinksRouteImport.update({
   id: '/links',
   path: '/links',
@@ -33,34 +45,56 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/links': typeof LinksRoute
+  '/login': typeof LoginRoute
+  '/mahjong': typeof MahjongRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/links': typeof LinksRoute
+  '/login': typeof LoginRoute
+  '/mahjong': typeof MahjongRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/links': typeof LinksRoute
+  '/login': typeof LoginRoute
+  '/mahjong': typeof MahjongRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/links'
+  fullPaths: '/' | '/about' | '/links' | '/login' | '/mahjong'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/links'
-  id: '__root__' | '/' | '/about' | '/links'
+  to: '/' | '/about' | '/links' | '/login' | '/mahjong'
+  id: '__root__' | '/' | '/about' | '/links' | '/login' | '/mahjong'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   LinksRoute: typeof LinksRoute
+  LoginRoute: typeof LoginRoute
+  MahjongRoute: typeof MahjongRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/mahjong': {
+      id: '/mahjong'
+      path: '/mahjong'
+      fullPath: '/mahjong'
+      preLoaderRoute: typeof MahjongRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/links': {
       id: '/links'
       path: '/links'
@@ -89,6 +123,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   LinksRoute: LinksRoute,
+  LoginRoute: LoginRoute,
+  MahjongRoute: MahjongRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
