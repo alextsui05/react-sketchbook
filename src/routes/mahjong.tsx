@@ -53,7 +53,7 @@ function MahjongTile({ name }: { name: string }) {
   name = toImageName(name);
   return (
     <img
-      className="w-16 h-16 inline-block"
+      className="h-16 inline-block dark:bg-white"
       src={images[`../assets/tiles/${name}.svg`].default}
       alt={name}
     />
@@ -76,29 +76,32 @@ function RouteComponent() {
       <ol>
         <li>Stack each wind randomly</li>
         <li>
-          One player rolls two dice, count counterclockwise from themselves.
-          Pick winds starting from that person going counterclockwise.
+          One player rolls two dice. Count counterclockwise from themselves by
+          that number to choose a player. Deal the winds counterclockwise from
+          the chosen player.
         </li>
         <li>
-          East player chooses their seat, and everyone else sits
-          counterclockwise from East (East, South, West, North).
+          The player dealt the East tile chooses their seat, and everyone else
+          sits counterclockwise from East (East, South, West, North).
         </li>
         <li>
-          Wash the tiles and everyone build a wall 17 tiles wide and 2 tiles
-          tall
+          Wash the tiles and everyone build a wall segment 17 tiles wide and 2
+          tiles tall. Connect the segments in a windmill pattern.
         </li>
         <li>
-          East player rolls two dice, and count counterclockwise from
-          themselves. The chosen player is East.
+          East player rolls two dice. Count counterclockwise from themselves by
+          that number to choose a player. That player becomes the new East
+          player and receives the wind disc.
         </li>
         <li>
-          The East player counts right-to-left on their wall the number of the
-          last dice roll. Open the wall from the next tile.
+          The East player counts right-to-left on their wall by the number of
+          the last dice roll. Open the wall from the next tile.
         </li>
         <li>
           Players take turns drawing tiles clockwise from the opening in the
-          wall. Draw 4 tiles each for 3 rounds, then draw 1 tile for a total of
-          13.
+          wall. When a wall segment is done, draw from the next clockwise wall
+          segment. Draw 4 tiles each for 3 rounds, then draw 1 tile for a total
+          of 13.
         </li>
       </ol>
       <h1 className="text-2xl font-bold">Triples</h1>
@@ -124,6 +127,24 @@ function RouteComponent() {
         </li>
         <li>Game ends after four rounds</li>
       </ul>
+      <h2 className="text-xl font-bold">Pung</h2>
+      <p>
+        If a player discards a tile that would complete a set, you may call
+        pung. Take the discarded tile, reveal your completed set, and discard a
+        tile. Play continues counterclockwise from your position.
+      </p>
+      <h2 className="text-xl font-bold">Kong</h2>
+      <p>
+        If you have a concealed set and a player discards a matching tile, you
+        may call kong. Take the discarded tile, reveal the four matching tiles,
+        then draw from the back of the wall. Play continues counterclockwise.
+      </p>
+      <h2 className="text-xl font-bold">Chi</h2>
+      <p>
+        If a player to your left discards a tile that would complete a run, you
+        may call chi. Take the discarded tile, reveal your completed run, and
+        discard a tile. Play continues counterclockwise from your position.
+      </p>
       <h1 className="text-2xl font-bold">Special Hands</h1>
       <p>
         There are many special hands in mahjong. Here's a{' '}
