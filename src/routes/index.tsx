@@ -14,6 +14,9 @@ function RouteComponent() {
             <Link to="/about">About</Link>
           </li>
           <li>
+            <Link to="/ingredients">Ingredients</Link>
+          </li>
+          <li>
             <Link to="/mahjong">Mahjong</Link>
           </li>
           <li>
