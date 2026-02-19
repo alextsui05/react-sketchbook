@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link, Outlet, createRootRoute } from '@tanstack/react-router';
+import { Toaster } from '@/components/ui/sonner';
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -17,6 +18,7 @@ function RootComponent() {
       <main className="flex-1 container mx-auto p-4">
         <Outlet />
       </main>
+      <Toaster />
     </React.Fragment>
   );
 }

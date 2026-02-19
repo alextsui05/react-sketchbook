@@ -13,6 +13,7 @@ import { Route as MahjongRouteImport } from './routes/mahjong'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as LinksRouteImport } from './routes/links'
 import { Route as IngredientsRouteImport } from './routes/ingredients'
+import { Route as FormsRouteImport } from './routes/forms'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -36,6 +37,11 @@ const IngredientsRoute = IngredientsRouteImport.update({
   path: '/ingredients',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FormsRoute = FormsRouteImport.update({
+  id: '/forms',
+  path: '/forms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -50,6 +56,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/forms': typeof FormsRoute
   '/ingredients': typeof IngredientsRoute
   '/links': typeof LinksRoute
   '/login': typeof LoginRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/forms': typeof FormsRoute
   '/ingredients': typeof IngredientsRoute
   '/links': typeof LinksRoute
   '/login': typeof LoginRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/forms': typeof FormsRoute
   '/ingredients': typeof IngredientsRoute
   '/links': typeof LinksRoute
   '/login': typeof LoginRoute
@@ -74,13 +83,28 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/ingredients' | '/links' | '/login' | '/mahjong'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/forms'
+    | '/ingredients'
+    | '/links'
+    | '/login'
+    | '/mahjong'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/ingredients' | '/links' | '/login' | '/mahjong'
+  to:
+    | '/'
+    | '/about'
+    | '/forms'
+    | '/ingredients'
+    | '/links'
+    | '/login'
+    | '/mahjong'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/forms'
     | '/ingredients'
     | '/links'
     | '/login'
@@ -90,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  FormsRoute: typeof FormsRoute
   IngredientsRoute: typeof IngredientsRoute
   LinksRoute: typeof LinksRoute
   LoginRoute: typeof LoginRoute
@@ -126,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IngredientsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/forms': {
+      id: '/forms'
+      path: '/forms'
+      fullPath: '/forms'
+      preLoaderRoute: typeof FormsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -146,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  FormsRoute: FormsRoute,
   IngredientsRoute: IngredientsRoute,
   LinksRoute: LinksRoute,
   LoginRoute: LoginRoute,

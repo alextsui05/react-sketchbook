@@ -13,5 +13,10 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
   base: '/react-sketchbook',
 });
