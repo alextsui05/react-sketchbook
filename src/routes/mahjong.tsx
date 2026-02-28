@@ -63,7 +63,19 @@ function MahjongTile({ name }: { name: string }) {
 function RouteComponent() {
   return (
     <div>
-      <h1 className="text-2xl font-bold">Tiles</h1>
+      <h1 className="text-2xl font-semibold">How to win</h1>
+      <p>
+        Winning hand has 4 <b>triples</b> and a <b>pair</b>
+      </p>
+      <MahjongHand names="1m 1m 1m 4s 4s 4s 5p 6p 7p 2z 2z 2z 6z 6z" />
+      <h2 className="text-xl font-bold">Triples = Sets or Runs</h2>
+      <p>Sets of three identical tiles</p>
+      <MahjongHand names="1m 1m 1m 4s 4s 4s 7p 7p 7p 5z 5z 5z" />
+      <p>Runs of three consecutive tiles</p>
+      <MahjongHand names="1s 2s 3s 4p 5p 6p 7m 8m 9m" />
+
+      <h1 className="text-xl font-semibold">Tiles</h1>
+      <p>There are 4 of each pattern:</p>
       <h2 className="text-xl font-semibold">Characters</h2>
       <MahjongHand names="1m 2m 3m 4m 5m 6m 7m 8m 9m" />
       <h2 className="text-xl font-semibold">Bamboos</h2>
@@ -73,7 +85,7 @@ function RouteComponent() {
       <h2 className="text-xl font-semibold">Winds and Dragons</h2>
       <MahjongHand names="1z 2z 3z 4z 5z 6z 7z" />
       <h1 className="text-xl font-semibold">Setup</h1>
-      <ol>
+      <ol className="list-decimal list-inside">
         <li>Stack each wind randomly</li>
         <li>
           One player rolls two dice. Count counterclockwise from themselves by
@@ -104,16 +116,8 @@ function RouteComponent() {
           of 13.
         </li>
       </ol>
-      <h1 className="text-2xl font-bold">Triples</h1>
-      <p>Sets of three identical tiles</p>
-      <MahjongHand names="1m 1m 1m 4s 4s 4s 7p 7p 7p 5z 5z 5z" />
-      <p>Runs of three consecutive tiles</p>
-      <MahjongHand names="1s 2s 3s 4p 5p 6p 7m 8m 9m" />
-      <h1 className="text-2xl font-bold">Winning</h1>
-      <p>Winning hand has 4 triples and a pair</p>
-      <MahjongHand names="1m 1m 1m 4s 4s 4s 5p 6p 7p 2z 2z 2z 6z 6z" />
-      <h1 className="text-2xl font-bold">Turns</h1>
-      <ul>
+      <h1 className="text-2xl font-semibold">Turns</h1>
+      <ul className="list-disc list-inside">
         <li>Draw from the wall clockwise</li>
         <li>Discard a tile</li>
         <li>Players take turns going counterclockwise, starting from East</li>
@@ -139,22 +143,22 @@ function RouteComponent() {
         may call kong. Take the discarded tile, reveal the four matching tiles,
         then draw from the back of the wall. Play continues counterclockwise.
       </p>
-      <h2 className="text-xl font-bold">Chi</h2>
+      <h2 className="text-xl font-bold">Shung</h2>
       <p>
-        If a player to your left discards a tile that would complete a run, you
-        may call chi. Take the discarded tile, reveal your completed run, and
+        On your turn, if you can make a run by picking up the last discard, you
+        may call shung. Take the discarded tile, reveal your completed run, and
         discard a tile. Play continues counterclockwise from your position.
       </p>
-      <h1 className="text-2xl font-bold">Special Hands</h1>
+      <h1 className="text-2xl font-semibold">Special Hands</h1>
       <p>
-        There are many special hands in mahjong. Here's a{' '}
+        Here's a{' '}
         <a
           href={`${import.meta.env.BASE_URL}/riichi-mahjong-hands.png`}
           target="_blank"
         >
-          cheatsheet
-        </a>
-        .
+          reference sheet
+        </a>{' '}
+        of other winning hands in Mahjong.
       </p>
     </div>
   );
