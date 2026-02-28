@@ -82,8 +82,10 @@ function RouteComponent() {
       <MahjongHand names="1s 2s 3s 4s 5s 6s 7s 8s 9s" />
       <h2 className="text-xl font-semibold">Dots</h2>
       <MahjongHand names="1p 2p 3p 4p 5p 6p 7p 8p 9p" />
-      <h2 className="text-xl font-semibold">Winds and Dragons</h2>
-      <MahjongHand names="1z 2z 3z 4z 5z 6z 7z" />
+      <h2 className="text-xl font-semibold">Winds</h2>
+      <MahjongHand names="1z 2z 3z 4z" />
+      <h2 className="text-xl font-semibold">Dragons</h2>
+      <MahjongHand names="5z 6z 7z" />
       <h1 className="text-xl font-semibold">Setup</h1>
       <ol className="list-decimal list-inside">
         <li>Stack each wind randomly</li>
