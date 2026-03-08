@@ -11,7 +11,7 @@ export const Route = createRootRoute({
 
 function RootWrapper() {
   return (
-    <SidebarProvider>
+    <SidebarProvider defaultOpen={false}>
       <RootComponent />
     </SidebarProvider>
   );
