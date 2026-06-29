@@ -30,6 +30,9 @@ export function AppSidebar() {
               <Link to="/mahjong">Mahjong</Link>
             </li>
             <li>
+              <Link to="/world-cup-2026">World Cup 2026</Link>
+            </li>
+            <li>
               <Link to="/links">Links</Link>
             </li>
           </ul>

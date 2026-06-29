@@ -23,7 +23,7 @@ function RootComponent() {
       <AppSidebar />
       <SidebarTrigger />
 
-      <main className="flex-1 container mx-auto p-4">
+      <main className="flex-1 p-4">
         <Outlet />
       </main>
       <Toaster />

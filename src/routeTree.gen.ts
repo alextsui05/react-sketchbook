@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorldCup2026RouteImport } from './routes/world-cup-2026'
 import { Route as MahjongRouteImport } from './routes/mahjong'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as LinksRouteImport } from './routes/links'
@@ -17,6 +18,11 @@ import { Route as FormsRouteImport } from './routes/forms'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WorldCup2026Route = WorldCup2026RouteImport.update({
+  id: '/world-cup-2026',
+  path: '/world-cup-2026',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MahjongRoute = MahjongRouteImport.update({
   id: '/mahjong',
   path: '/mahjong',
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/links': typeof LinksRoute
   '/login': typeof LoginRoute
   '/mahjong': typeof MahjongRoute
+  '/world-cup-2026': typeof WorldCup2026Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/links': typeof LinksRoute
   '/login': typeof LoginRoute
   '/mahjong': typeof MahjongRoute
+  '/world-cup-2026': typeof WorldCup2026Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/links': typeof LinksRoute
   '/login': typeof LoginRoute
   '/mahjong': typeof MahjongRoute
+  '/world-cup-2026': typeof WorldCup2026Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/links'
     | '/login'
     | '/mahjong'
+    | '/world-cup-2026'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/links'
     | '/login'
     | '/mahjong'
+    | '/world-cup-2026'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/links'
     | '/login'
     | '/mahjong'
+    | '/world-cup-2026'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,10 +131,18 @@ export interface RootRouteChildren {
   LinksRoute: typeof LinksRoute
   LoginRoute: typeof LoginRoute
   MahjongRoute: typeof MahjongRoute
+  WorldCup2026Route: typeof WorldCup2026Route
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/world-cup-2026': {
+      id: '/world-cup-2026'
+      path: '/world-cup-2026'
+      fullPath: '/world-cup-2026'
+      preLoaderRoute: typeof WorldCup2026RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mahjong': {
       id: '/mahjong'
       path: '/mahjong'
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   LinksRoute: LinksRoute,
   LoginRoute: LoginRoute,
   MahjongRoute: MahjongRoute,
+  WorldCup2026Route: WorldCup2026Route,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
