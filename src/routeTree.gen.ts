@@ -15,6 +15,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as LinksRouteImport } from './routes/links'
 import { Route as IngredientsRouteImport } from './routes/ingredients'
 import { Route as FormsRouteImport } from './routes/forms'
+import { Route as DovesRouteImport } from './routes/doves'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -48,6 +49,11 @@ const FormsRoute = FormsRouteImport.update({
   path: '/forms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DovesRoute = DovesRouteImport.update({
+  id: '/doves',
+  path: '/doves',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -62,6 +68,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/doves': typeof DovesRoute
   '/forms': typeof FormsRoute
   '/ingredients': typeof IngredientsRoute
   '/links': typeof LinksRoute
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/doves': typeof DovesRoute
   '/forms': typeof FormsRoute
   '/ingredients': typeof IngredientsRoute
   '/links': typeof LinksRoute
@@ -83,6 +91,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/doves': typeof DovesRoute
   '/forms': typeof FormsRoute
   '/ingredients': typeof IngredientsRoute
   '/links': typeof LinksRoute
@@ -95,6 +104,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/doves'
     | '/forms'
     | '/ingredients'
     | '/links'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/doves'
     | '/forms'
     | '/ingredients'
     | '/links'
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/doves'
     | '/forms'
     | '/ingredients'
     | '/links'
@@ -126,6 +138,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  DovesRoute: typeof DovesRoute
   FormsRoute: typeof FormsRoute
   IngredientsRoute: typeof IngredientsRoute
   LinksRoute: typeof LinksRoute
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FormsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/doves': {
+      id: '/doves'
+      path: '/doves'
+      fullPath: '/doves'
+      preLoaderRoute: typeof DovesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -198,6 +218,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  DovesRoute: DovesRoute,
   FormsRoute: FormsRoute,
   IngredientsRoute: IngredientsRoute,
   LinksRoute: LinksRoute,

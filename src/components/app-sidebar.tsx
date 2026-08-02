@@ -6,6 +6,7 @@ import {
   SidebarHeader,
 } from '@/components/ui/sidebar';
 import { Link } from '@tanstack/react-router';
+import Sitemap from './sitemap';
 
 export function AppSidebar() {
   return (
@@ -19,23 +20,7 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <ul>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/ingredients">Ingredients</Link>
-            </li>
-            <li>
-              <Link to="/mahjong">Mahjong</Link>
-            </li>
-            <li>
-              <Link to="/world-cup-2026">World Cup 2026</Link>
-            </li>
-            <li>
-              <Link to="/links">Links</Link>
-            </li>
-          </ul>
+          <Sitemap />
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter />

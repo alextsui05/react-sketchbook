@@ -1,4 +1,5 @@
-import { Link, createFileRoute } from '@tanstack/react-router';
+import Sitemap from '@/components/sitemap';
+import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/')({
   component: RouteComponent,
@@ -9,23 +10,7 @@ function RouteComponent() {
     <section>
       <h1>Home</h1>
       <div>
-        <ul>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/ingredients">Ingredients</Link>
-          </li>
-          <li>
-            <Link to="/mahjong">Mahjong</Link>
-          </li>
-          <li>
-            <Link to="/world-cup-2026">World Cup 2026</Link>
-          </li>
-          <li>
-            <Link to="/links">Links</Link>
-          </li>
-        </ul>
+        <Sitemap />
       </div>
     </section>
   );
